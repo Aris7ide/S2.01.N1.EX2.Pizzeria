@@ -64,4 +64,9 @@ Para los pedidos de reparto a domicilio interesa guardar quién es el repartidor
 
 ## Execution
 - he creado todas las clases y el scheme.sql con las instrucciones para crear todas las tablas
+- he creato RegionRepository y TownRepository para guardar los objetos en las tablas
+- con RepositoryTest estoy haciendo las pruebas para verificar que se guarden
+- he creado todos los repository menos ListOrder y Order
+- he creado una clase ListOrder y en el constructor especificado que el totalPrice es la suma de todos los productos.
+- en Order he creado la List<ListOrder> y especificado en un metodo el calculo del total del orden sumando todos los ListOrder de ese pedido.
 - 

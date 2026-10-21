@@ -9,10 +9,10 @@ public class Client {
     private String postalCode;
     private Town town;
     private Region region;
-    private int phone;
+    private String phone;
 
     public Client(String name, String surname, String address, String postalCode,
-                  Town town, Region region, int phone) {
+                  Town town, Region region, String phone) {
         this.name = name;
         this.surname = surname;
         this.address = address;
@@ -78,11 +78,11 @@ public class Client {
         this.region = region;
     }
 
-    public int getPhone() {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(int phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 }

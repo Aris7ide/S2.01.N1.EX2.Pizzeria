@@ -26,7 +26,7 @@ CREATE TABLE product (
     id INT AUTO_INCREMENT PRIMARY KEY,
     category_id INT NOT NULL,
     name VARCHAR(30) NOT NULL,
-    descripcion VARCHAR(120) NOT NULL,
+    description VARCHAR(120) NOT NULL,
     image_url VARCHAR(60),
     price DECIMAL(8,2) NOT NULL,
 
@@ -86,9 +86,14 @@ CREATE TABLE client (
 
 CREATE TABLE list_order (
     id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
     product_id INT NOT NULL,
     quantity INT NOT NULL,
     total_price DECIMAL(8,2) NOT NULL,
+
+    CONSTRAINT fk_list_order_pedido
+                        FOREIGN KEY (pedido_id)
+                        REFERENCES pedido(id),
 
     CONSTRAINT fk_list_order_product
                         FOREIGN KEY (product_id)
@@ -104,7 +109,6 @@ CREATE TABLE pedido (
     employee_id INT NOT NULL,
     time_received DATE,
     price_total DECIMAL(8,2) NOT NULL,
-    list_order_id INT NOT NULL,
 
     CONSTRAINT fk_pedido_shop
                    FOREIGN KEY (shop_id)

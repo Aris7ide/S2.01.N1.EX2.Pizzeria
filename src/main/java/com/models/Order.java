@@ -13,28 +13,36 @@ public class Order {
     private Employee employee; //only if takeaway
     private LocalDateTime orderReceived;
     private double totPrice;
-    private List<Product> products;
+    private List<ListOrder> listOrders;
 
     public Order(LocalDateTime orderDate, Shop shop, Client client, boolean takeaway,
-                  double totPrice, List<Product> products) {
+                  double totPrice, List<ListOrder> products) {
         this.orderDate = orderDate;
         this.shop = shop;
         this.client = client;
         this.takeaway = takeaway;
         this.totPrice = totPrice;
-        this.products = products;
+        this.listOrders = products;
     }
 
     public Order(LocalDateTime orderDate, Shop shop, Client client, boolean takeaway,
-                 Employee employee, LocalDateTime orderReceived, double totPrice, List<Product> products) {
+                 Employee employee, LocalDateTime orderReceived, double totPrice, List<ListOrder> products) {
         this.orderDate = orderDate;
         this.shop = shop;
         this.client = client;
         this.takeaway = takeaway;
         this.employee = employee;
         this.orderReceived = orderReceived;
-        this.totPrice = totPrice;
-        this.products = products;
+        this.totPrice = calculateTotalOrder();
+        this.listOrders = products;
+    }
+
+    public double calculateTotalOrder() {
+        double total = 0;
+        for (ListOrder listOrder : this.listOrders) {
+            total = total + listOrder.getTotalPrice();
+        }
+        return total;
     }
 
     public int getId() {
@@ -101,11 +109,11 @@ public class Order {
         this.totPrice = totPrice;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<ListOrder> getProducts() {
+        return listOrders;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProducts(List<ListOrder> products) {
+        this.listOrders = products;
     }
 }
