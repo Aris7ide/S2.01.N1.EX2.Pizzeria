@@ -15,33 +15,30 @@ public class Order {
     private double totPrice;
     private List<ListOrder> listOrders;
 
-    public Order(LocalDateTime orderDate, Shop shop, Client client, boolean takeaway,
-                  double totPrice, List<ListOrder> products) {
-        this.orderDate = orderDate;
+    public Order(Shop shop, Client client, boolean takeaway) {
+        this.orderDate = LocalDateTime.now();
         this.shop = shop;
         this.client = client;
         this.takeaway = takeaway;
-        this.totPrice = totPrice;
-        this.listOrders = products;
+        this.listOrders = new ArrayList<>();
+        this.totPrice = calculateTotalOrder();
     }
 
-    public Order(LocalDateTime orderDate, Shop shop, Client client, boolean takeaway,
-                 Employee employee, LocalDateTime orderReceived, double totPrice, List<ListOrder> products) {
-        this.orderDate = orderDate;
+    public Order(Shop shop, Client client, boolean takeaway,
+                 Employee employee, LocalDateTime orderReceived) {
+        this.orderDate = LocalDateTime.now();
         this.shop = shop;
         this.client = client;
         this.takeaway = takeaway;
         this.employee = employee;
         this.orderReceived = orderReceived;
+        this.listOrders = new ArrayList<>();
         this.totPrice = calculateTotalOrder();
-        this.listOrders = products;
     }
 
     public double calculateTotalOrder() {
-        double total = 0;
-        for (ListOrder listOrder : this.listOrders) {
-            total = total + listOrder.getTotalPrice();
-        }
+        double total = this.listOrders.stream().mapToDouble(ListOrder::getTotalPrice).sum();
+        this.totPrice = total;
         return total;
     }
 

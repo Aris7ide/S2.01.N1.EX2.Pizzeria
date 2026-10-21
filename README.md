@@ -69,4 +69,4 @@ Para los pedidos de reparto a domicilio interesa guardar quién es el repartidor
 - he creado todos los repository menos ListOrder y Order
 - he creado una clase ListOrder y en el constructor especificado que el totalPrice es la suma de todos los productos.
 - en Order he creado la List<ListOrder> y especificado en un metodo el calculo del total del orden sumando todos los ListOrder de ese pedido.
-- 
+- he acabado creando todos los repositories y he añadido datos al scheme.sql hechos con gemini

@@ -8,7 +8,7 @@ public class ListOrder {
     private int quantity;
     private double totalPrice;
 
-    public ListOrder(Order order, Product product, int quantity, double totalPrice) {
+    public ListOrder(Order order, Product product, int quantity) {
         this.order = order;
         this.product = product;
         this.quantity = quantity;
