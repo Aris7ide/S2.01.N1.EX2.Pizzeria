@@ -99,6 +99,8 @@ class OrderRepositoryTest {
         listOrderRepository.saveListOrder(connection,listOrder1);
         listOrderRepository.saveListOrder(connection,listOrder2);
 
+        //todo las tablas existen
+
         assertThat(order.getProducts().size()).isEqualTo(2);
         assertThat(listOrder1.getTotalPrice()).isEqualTo(22.5);
         assertThat(listOrder2.getTotalPrice()).isEqualTo(9);

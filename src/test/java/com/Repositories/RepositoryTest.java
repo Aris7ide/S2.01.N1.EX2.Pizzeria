@@ -48,6 +48,8 @@ class RepositoryTest {
     void shouldSaveRegion() throws SQLException {
         Region region = new Region("Campania");
         regionRepository.save(connection, region);
+
+        //todo assert tablas
     }
 
     @Test

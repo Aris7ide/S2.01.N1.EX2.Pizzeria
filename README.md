@@ -73,3 +73,5 @@ Para los pedidos de reparto a domicilio interesa guardar quién es el repartidor
 - desde aqui ya he creado una ReportRepository con los metodos de busqueda
 - productSoldInTown() busca cuantos productos de una categoria han sido vendidos en una ciudad
 - totalOrdersByEmployee() busca cuantos pedidos ha hecho un employee
+
+### no hice todos los findById de todos los repos y los tests porque me queda muy claro y he preferido avanzar
